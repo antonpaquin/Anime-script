@@ -14,8 +14,6 @@ with open('/home/anton/.passwords/ohayo') as pass_f:
     val = line.split('=')[1].strip()
     identity[key] = val
 
-print(identity)
-
 def run():
     args = parseArgs()
 
