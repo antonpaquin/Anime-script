@@ -1,0 +1,23 @@
+#!/bin/bash
+
+mflag='false'
+
+while getopts 'm' flag 2>/dev/null; do
+  case "${flag}" in
+    m) mflag='true' ;;
+  esac
+done
+
+if [ "$mflag" == 'true' ]; then
+  moviemode
+  bspc desktop -f '^9'
+fi
+
+res=`python /home/anton/Scripts/Anime $@`
+
+if [[ "$res" == 'mpv'* ]]; then
+  $($res)
+  unmoviemode
+else
+  echo "$res"
+fi
