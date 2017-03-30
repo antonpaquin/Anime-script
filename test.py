@@ -171,8 +171,8 @@ def parseShowName(name):
             return fullname
 
     # Try filtered substrings
-    for fullname in validNames:
-        if nameMinim(fullname).find(nameMinim(name)) != -1:
+    for lowname, fullname in zip(lowNames, validNames):
+        if nameMinim(fullname).find(nameMinim(lowname)) != -1:
             return fullname
         
 
